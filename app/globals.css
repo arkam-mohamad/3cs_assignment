@@ -2,32 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html, body{
+  scroll-behavior: smooth;
+}
+body{
+  max-width: 1560px;
+  background-color: #241b35;
+  color: #fff;
+  overflow-x: clip;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+nav li:hover{
+  text-decoration: underline;
+  text-decoration-color: #cb80ff;
+}
+.button{
+  transition: all 0.2s ease;
+}
+.button:hover, .service-item-button:hover{
+  text-shadow: 4px 4px 2px rgba(0,0,0,0.6);
+  transform: scale(1.05);
+}
+.purple-button:hover{
+  box-shadow: 4px 4px 2px rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+}
+
+
+.hero-image{
+  width: auto;
+  height: auto;
+  animation: heroImageAnim 10s ease-in-out 1s infinite ;
+}
+
+@keyframes heroImageAnim {
+  0%{
+    transform: scale(0.8);
+  }
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(0.8);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+
+/* medium laptop size responsiveness  */
+@media screen and (max-width: 1280px) {
+  .about-us{
+    flex-direction: column;
+    align-items: center;
   }
 }
+
+/* small laptop size responsiveness  */
+@media screen and (max-width: 1024px) {
+  footer section{
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .link-columns{
+    gap: 40px;
+  }
+}
+
+/* tablet size responsiveness  */
+@media screen and (max-width: 768px) {
+  .team-members{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* mobile size responsiveness  */
+@media screen and (max-width: 640px) {
+  nav .button{
+    display: none;
+  }
+  .hero h1{
+    width: 90%;
+  }
+  .hero p{
+    width: 90%;
+  }
+  .services h3{
+    width: 90%;
+  }
+  .services-column{
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+  .news-letter{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .copyright-column{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
